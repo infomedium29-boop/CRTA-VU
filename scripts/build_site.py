@@ -59,8 +59,7 @@ def template(title,desc,body,current='',path='',pic='hero.avif',home=False):
  file=ROOT / path / 'index.html' if path else ROOT/'index.html';file.parent.mkdir(parents=True,exist_ok=True);file.write_text(html,encoding='utf-8');pathlist.append((path,desc));return file
 
 def pagehero(kicker,title,subtitle,crumb,current=''):
- crumbs='<a href="/">Početna</a><span>/</span>'+(f'<a href="{href(current)}">{current.title()}</a><span>/</span>' if current else '')+f'<span>{crumb}</span>'
- return f'<section class="page-hero"><div class="container"><div class="breadcrumb">{crumbs}</div>{eyebrow(kicker,True)}<h1>{title}</h1><p>{subtitle}</p></div></section>'
+ return f'<section class="page-hero"><div class="container">{eyebrow(kicker,True)}<h1>{title}</h1><p>{subtitle}</p></div></section>'
 def getcta():return f'<section class="section cta-banner"><div class="container cta-grid"><div>{eyebrow("POČNIMO RAZGOVOR",True)}<h2>Trebate projektnu<br><span class=text-bronze>dokumentaciju?</span></h2><p style="color:#a6b1b0">Pošaljite nam opis objekta, lokaciju i vrstu dokumentacije koja vam je potrebna.</p></div><div>{cta("kontakt","Pošaljite upit")}</div></div></section>'
 # Home
 service_rows=''.join(f'<a href="{href("usluge/"+s["slug"])}" class="service-row"><span class="num">{s["num"]}</span><h3>{s["name"]}</h3><span class="short">{s["short"]}</span><span class="icon-next">↗</span></a>' for s in services)
