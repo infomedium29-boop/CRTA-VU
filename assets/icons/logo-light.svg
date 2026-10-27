@@ -1,15 +1,15 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 120" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 110" role="img" aria-labelledby="title desc">
 <title id="title">CRTA VU logo</title>
-<desc id="desc">Premium arhitektonski logotip CRTA VU</desc>
-<g fill="none" stroke="#C49A72" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter">
-  <path d="M18 90H146"/>
-  <path d="M48 90V58l44-26 42 24"/>
-  <path d="M92 32V90"/>
-  <path d="M134 52V90"/>
-  <path d="M18 70H54"/>
+<desc id="desc">Kompaktan premium arhitektonski logotip CRTA VU</desc>
+<g fill="none" stroke="#C49A72" stroke-width="3.2" stroke-linecap="square" stroke-linejoin="miter">
+  <path d="M16 82H122"/>
+  <path d="M42 82V55l36-21 34 20"/>
+  <path d="M78 34V82"/>
+  <path d="M112 49V82"/>
+  <path d="M16 65H48"/>
 </g>
-<g font-family="Helvetica Neue, Segoe UI, Arial, sans-serif" font-weight="300">
-  <text x="166" y="82" font-size="50" letter-spacing="2.5" fill="#F4F2EE">CRTA</text>
-  <text x="400" y="82" font-size="50" letter-spacing="2.5" fill="#C49A72">VU</text>
+<g font-family="Helvetica Neue, Segoe UI, Arial, sans-serif" font-weight="600">
+  <text x="138" y="74" font-size="39" letter-spacing="0.6" fill="#F4F2EE">CRTA</text>
+  <text x="286" y="74" font-size="39" letter-spacing="0.6" fill="#C49A72">VU</text>
 </g>
 </svg>
