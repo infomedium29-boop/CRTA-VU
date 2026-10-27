@@ -116,3 +116,8 @@ Nema WordPressa, build sustava, npm paketa ili vanjskih CSS/JS frameworka. Svi v
 ## Ažuriranje logotipa
 - Integriran novi logotip u header, footer i intro overlay.
 - Dodani asseti: `/assets/icons/logo-light.svg`, `/assets/icons/logo-dark.svg`, `/assets/icons/favicon.svg`.
+
+
+## Premium dorada logotipa
+- Rafiniran wordmark i znak za header, footer i intro.
+- Smanjeni razmaci i prilagođene proporcije za desktop i mobitel.
