@@ -1,6 +1,14 @@
-# CRTA VU – premium višestranični web sajt
+# CRTA VU – višestranični web sajt
 
 Profesionalni statički web za **CRTA VU, obrt za uslužne djelatnosti u građevinarstvu, vl. Danijela Hardi**, Vijeća Europe 73, Vukovar.
+
+## Izmjene u ovoj verziji
+
+- Uklonjeni svi ukrasni nadnaslovi i generičke slogan-linije kroz cijeli web.
+- Prepisani glavni naslovi, opisi usluga i ponavljajuće generičke rečenice.
+- Uklonjeni nepotrebni natpisi iz logotipa, intro animacije i 3D sekcije; 3D prikaz ostaje funkcionalan.
+- Uređen razmak i prijelomi naslova na mobitelu i računalu.
+- Posljednje izmjene napravljene su u `scripts/build_site.py`, pa ostaju sačuvane pri regeneriranju stranica.
 
 ## Što je uključeno
 
