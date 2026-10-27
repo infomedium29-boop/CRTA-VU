@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 140" role="img" aria-labelledby="title desc">
+<title id="title">CRTA VU logo</title><desc id="desc">Arhitektonski logotip CRTA VU</desc>
+<g fill="none" stroke="#C49A72" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter">
+<path d="M20 112H170"/>
+<path d="M58 112V68l70-40 74 38"/>
+<path d="M128 28V112"/>
+<path d="M170 112V40"/>
+<path d="M20 86H78"/>
+</g>
+<g font-family="Segoe UI, Arial, Helvetica, sans-serif" font-weight="300" letter-spacing="10">
+<text x="205" y="97" font-size="72" fill="#151A1B">CRTA</text>
+<text x="500" y="97" font-size="72" fill="#C49A72">VU</text>
+</g>
+</svg>

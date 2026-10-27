@@ -111,3 +111,8 @@ Prvo provjerava interne poveznice, lokalne slike, SEO osnovu, osnovnu semantičk
 ## Napomena za održavanje
 
 Nema WordPressa, build sustava, npm paketa ili vanjskih CSS/JS frameworka. Svi vizuali su lokalni AVIF, a 3D model je implementiran izravno u `assets/js/site.js`.
+
+
+## Ažuriranje logotipa
+- Integriran novi logotip u header, footer i intro overlay.
+- Dodani asseti: `/assets/icons/logo-light.svg`, `/assets/icons/logo-dark.svg`, `/assets/icons/favicon.svg`.
