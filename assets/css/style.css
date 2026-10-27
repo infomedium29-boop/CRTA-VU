@@ -25,6 +25,7 @@
 .model-viewport{isolation:isolate}
 .story-copy h2{margin-top:0}
 .cta-grid h2{margin-top:0}
-.hero-bottom-inner{justify-content:flex-end}
+.hero-bottom-inner{justify-content:space-between}
+.hero-stamp{text-align:left;flex-shrink:0}
 .hero-scroll{text-transform:none;letter-spacing:.03em;font-size:.85rem}
 @media(max-width:650px){.hero h1{font-size:clamp(3.15rem,11.2vw,5rem)}.hero-content{padding-top:0}.footer-summary{margin-top:14px}.page-hero{min-height:430px}.panel-card{min-height:180px}}
