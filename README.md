@@ -1,3 +1,7 @@
+**Za GitHub/Cloudflare objavljujte gotove HTML datoteke.** Skripta `scripts/build_site.py` pripada ranijem generatorskom predlošku i može prepisati ručne vizualne dorade (uključujući vanjske fotografije); ne pokretati je bez prethodne prilagodbe.
+
+**Fotografije stvarnih referenci:** za dvije fotografije iz vanjskih izvora potrebno je pribaviti dopuštenje prije trajne javne objave. Detalji: `IZVORI_FOTOGRAFIJA.md`.
+
 # CRTA VU – višestranični web sajt
 
 Profesionalni statički web za **CRTA VU, obrt za uslužne djelatnosti u građevinarstvu, vl. Danijela Hardi**, Vijeća Europe 73, Vukovar.

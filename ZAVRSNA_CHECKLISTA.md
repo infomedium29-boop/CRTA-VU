@@ -22,12 +22,12 @@ Kategorije: ✅ implementirano i provjereno · ⚠️ potrebna dodatna konfigura
 | 16 | Mobile Version | ✅ | Izvedene i vizualno pregledane desktop i mobilna širina; nema horizontalnog overflowa na testiranim širinama. |
 | 17 | Accessibility | ⚠️ | Semantika, skip link, focus states, labeli, reduced motion, mobilni izbornik; puna WCAG revizija nije dovršena. |
 | 18 | Test Forms | ⚠️ | Browser validacija postoji; e-mail nacrt preko `mailto:` radi po namjeni. Nema konfiguriranog automatiziranog servisa niti završnog testa produkcijske isporuke. |
-| 19 | Check Broken Links | ⚠️ | Automatski pregledano 687 lokalnih href poveznica i 15 slikovnih pojavljivanja kroz 17 HTML stranica, bez grešaka; vanjski URL-ovi trebaju završnu live provjeru. |
-| 20 | Optimise Performance | ⚠️ | Lokalni AVIF (četiri slike ukupno oko 762 KB), odgođeni JS i animacije; nije proveden javni Lighthouse/Core Web Vitals test. |
+| 19 | Check Broken Links | ⚠️ | Automatski pregledano 693 poveznica i 15 slikovnih pojavljivanja na 17 sadržajnih HTML stranica, bez pronađenih strukturnih grešaka; vanjske fotografije i URL-ovi nisu potvrđeni u pregledniku. |
+| 20 | Optimise Performance | ⚠️ | Lokalni AVIF za ostale ilustracije, odgođeni JS i animacije; dvije fotografije projekata trenutačno se učitavaju s vanjskih servera (nisu offline). Nije proveden javni Lighthouse/Core Web Vitals test. |
 
 ## Provedena tehnička kontrola
 
-- ✅ `scripts/check_site.py`: **17 HTML datoteka, 687 linkova, 15 slikovnih pojavljivanja, 0 strukturnih grešaka**.
+- ✅ `scripts/check_site.py`: **17 sadržajnih HTML datoteka, 693 linka, 15 slikovnih pojavljivanja, 0 strukturnih grešaka**.
 - ✅ `node --check assets/js/site.js`: prolazi parsiranje.
 - ✅ Pregled u Chromiumu: desktop 1440×900, mobitel 390×844, bez JavaScript pogrešaka i bez horizontalnog prelijevanja.
 - ✅ Interaktivni 3D: rotacija i promjena „Materijali / Nacrt” funkcionalno testirane.
@@ -42,3 +42,5 @@ Kategorije: ✅ implementirano i provjereno · ⚠️ potrebna dodatna konfigura
 4. Po želji povezati GA4 uz postojeći mehanizam privole.
 5. Revidirati politiku privatnosti i uvjete za konačne tehnologije i poslovni model.
 6. Napraviti završni Lighthouse, WCAG i provjeru vanjskih poveznica na objavljenoj domeni.
+
+7. ⚠️ Potrebna su dopuštenja autora/nositelja prava za uporabu dokumentarnih fotografija Batinih vila i mosta u Adici prije trajne javne objave. Trenutačno se fotografije pozivaju putem vanjskih URL-ova i nisu u ZIP-u. Vidi `IZVORI_FOTOGRAFIJA.md`.
