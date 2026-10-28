@@ -125,3 +125,7 @@ Nema WordPressa, build sustava, npm paketa ili vanjskih CSS/JS frameworka. Svi v
 
 ## Optimizacija logotipa
 - Logotip je prebačen iz PNG u AVIF format radi manjeg file size-a i bržeg učitavanja.
+
+
+## Dodatna dorada logotipa
+- Logotip je dodatno posvijetljen radi bolje vidljivosti na tamnim i kontrastnim pozadinama.
