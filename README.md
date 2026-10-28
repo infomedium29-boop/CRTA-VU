@@ -129,3 +129,15 @@ Nema WordPressa, build sustava, npm paketa ili vanjskih CSS/JS frameworka. Svi v
 
 ## Dodatna dorada logotipa
 - Logotip je dodatno posvijetljen radi bolje vidljivosti na tamnim i kontrastnim pozadinama.
+
+
+## HR / EN verzija
+- Hrvatski je na `/`, engleski na `/en/`. Prekidač HR/EN nalazi se u navigaciji svih podstranica i zadržava isti sadržaj pri promjeni jezika.
+- Sve stranice uključujući FAQ, pravne dokumente, opis usluga, projekte i kontakt imaju engleski tekst. Kontakt obrazac i kolačići su lokalizirani.
+- Prije **javne produkcijske objave** potrebno je utvrditi stvarnu domenu, postaviti apsolutne canonical i `hreflang` oznake (`hr-HR`, `en` i eventualno `x-default`), ažurirati sitemap.xml te ukloniti testni `noindex` i pravilo Disallow iz robots.txt.
+- Kontakt obrazac trenutačno koristi mailto fallback dok se ne postavi klijentov Web3Forms ključ. GA4 nije povezan.
+- Fotografske reference koriste vanjske URL-ove — provjeriti dopuštenja prije produkcije.
+
+### Napomena za buduće izmjene
+- Dvije jezične verzije su statičke HTML datoteke. Kada se mijenja tekst na HR, zasebno ažurirati isti tekst na odgovarajućoj `/en/` stranici.
+- Ne pokretati stari `scripts/build_site.py` kao automatski build korak jer nije prilagođen za regeneriranje obje jezične verzije i može poništiti ručne izmjene. U Cloudflare Pages postaviti bez build komande / output root.

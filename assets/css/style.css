@@ -53,3 +53,18 @@
 .service-row .icon-next::before,.link-arrow .circle-arrow::before,.project-card .card-arrow::before,.service-tile .tile-icon::before{width:12px;height:1.5px}
 .service-row .icon-next::after,.link-arrow .circle-arrow::after,.project-card .card-arrow::after,.service-tile .tile-icon::after{width:1.5px;height:12px}
 @media (prefers-reduced-motion:reduce){.service-row .icon-next,.link-arrow .circle-arrow,.project-card .card-arrow,.service-tile .tile-icon{transition:none}}
+
+/* CRTA VU language switching — accessible, stays visible on phones. */
+.lang-switch{display:inline-flex;align-items:center;gap:0;border:1px solid rgba(196,154,114,.42);border-radius:999px;background:rgba(8,15,17,.44);padding:3px;min-width:94px;height:40px;flex:none}
+.lang-switch a{color:#d5d9d6;font-size:11px;letter-spacing:.045em;display:grid;place-items:center;width:43px;height:32px;border-radius:999px;line-height:1;font-weight:650;transition:color .2s,background .2s}
+.lang-switch a[aria-current="true"]{color:#12191b;background:#c49a72;font-weight:800}
+.lang-switch a:not([aria-current="true"]):hover{background:rgba(196,154,114,.14);color:#fff}
+.lang-switch a:focus-visible{outline:2px solid #fff;outline-offset:2px}
+.lang-switch .lang-divider{display:none}
+.mobile-menu .lang-switch--mobile{display:inline-flex;align-self:flex-start;margin:12px 10px 6px;min-width:94px}
+@media(max-width:1250px){.lang-switch{min-width:90px}.lang-switch a{width:41px}}
+@media(max-width:950px){.nav-actions>.lang-switch{height:38px;margin-right:7px}}
+@media(max-width:650px){.nav-actions>.lang-switch{margin-right:3px;min-width:80px;height:36px;padding:2px}.lang-switch a{height:30px;width:37px;font-size:10px}.nav-actions{gap:6px}}
+@media(max-width:390px){.nav-actions>.lang-switch{min-width:74px}.lang-switch a{width:34px}.brand-logo{max-width:49vw}}
+
+@media(max-width:390px){.brand-logo{width:125px;max-width:40vw}.nav-shell{padding-left:10px;padding-right:8px}.nav-actions>.lang-switch{min-width:74px}.hamburger{width:42px;height:42px}}

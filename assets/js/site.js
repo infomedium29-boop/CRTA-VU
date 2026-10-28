@@ -5,6 +5,8 @@ const $=(s,root=document)=>root.querySelector(s);
 const $$=(s,root=document)=>[...root.querySelectorAll(s)];
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const body=document.body;
+const isEnglish=document.documentElement.lang==='en';
+const tr=(hr,en)=>isEnglish?en:hr;
 const menuBtn=$('[data-menu-toggle]');
 menuBtn?.addEventListener('click',()=>{const open=body.classList.toggle('menu-open');menuBtn.setAttribute('aria-expanded',String(open));});
 $$('.mobile-menu a').forEach(link=>link.addEventListener('click',()=>{body.classList.remove('menu-open');menuBtn?.setAttribute('aria-expanded','false');}));
@@ -30,13 +32,21 @@ $('[data-cookie-save]')?.addEventListener('click',()=>saveConsent(!!$('#analytic
 // Form: uses Web3Forms if configured. Until then a validated mailto draft is opened (not a false submission claim).
 const form=$('[data-contact-form]');
 const WEB3FORMS_KEY=''; // Set the real client-owned key here before release.
-form?.addEventListener('submit',async e=>{e.preventDefault();const status=$('[data-form-status]');if(!form.reportValidity())return;if(form.elements.website?.value)return;const data=new FormData(form);const name=String(data.get('name')||'');const email=String(data.get('email')||'');const phone=String(data.get('phone')||'');const subject=String(data.get('service')||'Upit putem web stranice');const message=String(data.get('message')||'');const btn=form.querySelector('button[type="submit"]');if(status)status.textContent='';
-if(WEB3FORMS_KEY){try{btn.disabled=true;const payload={access_key:WEB3FORMS_KEY,name,email,phone,subject,message,from_name:'CRTA VU web',botcheck:''};const response=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const json=await response.json();if(!response.ok||!json.success)throw Error('Slanje nije uspjelo');form.reset();if(status)status.textContent='Hvala! Upit je uspješno poslan.';}catch{if(status)status.textContent='Upit nije poslan. Pokušajte ponovno ili nam pišite izravno na crta-vu@gmail.com.';}finally{btn.disabled=false;}}
-else{const subjectText=`Upit s web stranice CRTA VU — ${subject}`;const bodyText=`Ime i prezime: ${name}\nE-mail: ${email}\nTelefon: ${phone}\nUsluga: ${subject}\n\nPoruka:\n${message}`;const mailto=`mailto:crta-vu@gmail.com?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;if(status)status.textContent='Otvara se vaša aplikacija za e-poštu. Poruka će biti poslana tek kada je pošaljete iz te aplikacije.';window.location.href=mailto;}
+form?.addEventListener('submit',async e=>{e.preventDefault();const status=$('[data-form-status]');if(!form.reportValidity())return;if(form.elements.website?.value)return;const data=new FormData(form);const name=String(data.get('name')||'');const email=String(data.get('email')||'');const phone=String(data.get('phone')||'');const subject=String(data.get('service')||tr('Upit putem web stranice','Website enquiry'));const message=String(data.get('message')||'');const btn=form.querySelector('button[type="submit"]');if(status)status.textContent='';
+if(WEB3FORMS_KEY){try{btn.disabled=true;const payload={access_key:WEB3FORMS_KEY,name,email,phone,subject,message,from_name:'CRTA VU web',botcheck:''};const response=await fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});const json=await response.json();if(!response.ok||!json.success)throw Error('Slanje nije uspjelo');form.reset();if(status)status.textContent=tr('Hvala! Upit je uspješno poslan.','Thank you! Your enquiry has been sent.');}catch{if(status)status.textContent=tr('Upit nije poslan. Pokušajte ponovno ili nam pišite izravno na crta-vu@gmail.com.','Your enquiry was not sent. Please try again or email crta-vu@gmail.com directly.');}finally{btn.disabled=false;}}
+else{const subjectText=`${tr('Upit s web stranice CRTA VU','CRTA VU website enquiry')} — ${subject}`;const bodyText=`${tr('Ime i prezime','Full name')}: ${name}\n${tr('E-mail','Email')}: ${email}\n${tr('Telefon','Phone')}: ${phone}\n${tr('Usluga','Service')}: ${subject}\n\n${tr('Poruka','Message')}:\n${message}`;const mailto=`mailto:crta-vu@gmail.com?subject=${encodeURIComponent(subjectText)}&body=${encodeURIComponent(bodyText)}`;if(status)status.textContent=tr('Otvara se vaša aplikacija za e-poštu. Poruka će biti poslana tek kada je pošaljete iz te aplikacije.','Your email app is opening. The message will only be sent when you send it from that app.');window.location.href=mailto;}
 });
 // Canonical/OG absolute URLs are generated from the live origin on an owned production hostname.
 const host=location.hostname;const hosted=host&&host!=='localhost'&&host!=='127.0.0.1'&&!host.endsWith('.pages.dev')&&!host.endsWith('.example');
 if(hosted){const path=location.pathname.endsWith('.html')?location.pathname:location.pathname.endsWith('/')?location.pathname:location.pathname+'/';const uri=location.origin+path;const can=$('link[rel="canonical"]');if(can)can.href=uri;const og=$('meta[property="og:url"]');if(og)og.content=uri;const ogim=$('meta[property="og:image"]');if(ogim)ogim.content=location.origin+'/assets/img/hero.avif';}
+// On the production domain, expose language alternatives for indexing.
+if(hosted){
+ const hrPath=location.pathname.replace(/^\/en(?=\/)/,'')||'/';
+ const fullPath=hrPath.endsWith('.html')?hrPath:(hrPath.endsWith('/')?hrPath:hrPath+'/');
+ [['hr-HR',fullPath],['en','/en'+(fullPath==='/'?'/':fullPath)],['x-default',fullPath]].forEach(([lang,path])=>{
+  const link=document.createElement('link');link.rel='alternate';link.hreflang=lang;link.href=location.origin+path;document.head.appendChild(link);
+ });
+}
 // Interactive 3D architectural model, software-rendered on canvas (no external libraries, no trackers).
 const canvas=$('#architecture-model');
 if(canvas){const ctx=canvas.getContext('2d',{alpha:true});const state={yaw:-.77,pitch:-.32,wire:false,drag:false,x:0,y:0};const TAU=Math.PI*2;let raf=0,last=0;const viewport=()=>{const r=canvas.getBoundingClientRect();const dpr=Math.min(devicePixelRatio||1,2);canvas.width=Math.round(r.width*dpr);canvas.height=Math.round(r.height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);return {w:r.width,h:r.height};};let dims=viewport();let visible=true;
