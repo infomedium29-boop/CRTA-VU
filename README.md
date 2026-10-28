@@ -121,3 +121,7 @@ Nema WordPressa, build sustava, npm paketa ili vanjskih CSS/JS frameworka. Svi v
 ## Premium dorada logotipa
 - Rafiniran wordmark i znak za header, footer i intro.
 - Smanjeni razmaci i prilagođene proporcije za desktop i mobitel.
+
+
+## Optimizacija logotipa
+- Logotip je prebačen iz PNG u AVIF format radi manjeg file size-a i bržeg učitavanja.
